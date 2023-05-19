@@ -1,25 +1,24 @@
 import { useEffect, useState } from 'react';
 import { getGifts } from '../helpers/getGifs';
 
-export const useFetchGifs = ( category ) => {
+export const useFetchGifs = (category) => {
+  const [images, setImages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    const [images, setImages] =  useState([]);
-    const [isLoading, setIsLoading] =  useState(true);
-  
-  
-    const getImages = async() => {
-      const newImages = await getGifts ( category );
+  useEffect(() => {
+    const getImages = async (limit) => {
+      const newImages = await getGifts(category, limit);
       setImages(newImages);
-      setIsLoading(false)
-    }
-  
-    useEffect( () => {
-      getImages();
-    }, [] );
+      setIsLoading(false);
+    };
 
-    return {
-        images,
-        isLoading
-    }
+    getImages(10); // Llama a getImages con el límite inicial
+  }, [category]);
 
-}
+  return {
+    images,
+    isLoading,
+    setImages,
+    setIsLoading,
+  };
+};
