@@ -16,6 +16,7 @@ export const GifExpertApp = () => {
 
   const deleteCurrent = () => {
     setCategories((prevCategories) => prevCategories.slice(1));
+    
   };
 
   return (
