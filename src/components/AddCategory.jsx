@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
 
   export const AddCategory = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState('');
@@ -17,15 +18,17 @@ import React, { useState } from "react";
   };
 
   return (
-    <form onSubmit={ onSubmit }>
-      <input
+    <Form onSubmit={onSubmit}>
+    <Form.Group controlId="categoryInput">
+      <Form.Control
         type="text"
         placeholder="Buscar GIF's"
         value={inputValue}
         onChange={onInputChange}
       />
-      <button type="submit">Agregar</button>
-    </form>
+    </Form.Group>
+    <Button variant="primary" type="submit">Agregar</Button>
+  </Form>
   );
 };
 

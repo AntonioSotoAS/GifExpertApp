@@ -2,11 +2,18 @@ import { useEffect, useState } from "react";
 import { GifItem } from "./GifItem";
 import { useFetchGifs } from "../hooks/useFetchGifs";
 import { getGifts } from "../helpers/getGifs";
+import { Card, Col, Container, Row } from "react-bootstrap";
+
 
 export const GifGrid = ({ category }) => {
   const { images, isLoading, setImages, setIsLoading } = useFetchGifs(category);
   const [limit, setLimit] = useState(10);
   const montoIncrementado = 10;
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,13 +48,15 @@ export const GifGrid = ({ category }) => {
 
       {isLoading && <h2>Cargando...</h2>}
 
-      <div className="container-grid">
-        <div className="card-grid">
-          {images.slice(0, limit).map((image) => (
-            <GifItem key={image.id} {...image} />
-          ))}
-        </div>
-      </div>
+      <Container className={`gif-container ${darkMode ? 'dark-container' : ''}`}>
+          <Row xs={1} sm={2} md={3} lg={4} xl={5} className={`g-4 ${darkMode ? 'dark-row' : ''}`}>
+            {images.map((image) => (
+              <Col key={image.id} className={`gif-col ${darkMode ? 'dark-col' : ''}`}>
+                <GifItem {...image} />
+              </Col>
+            ))}
+          </Row>
+        </Container>
     </>
   );
 };

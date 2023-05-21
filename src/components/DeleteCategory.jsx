@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 
 
  export const DeleteCategory = ({ onDeleteCurrent, onDeleteAll }) => {
@@ -13,8 +14,8 @@
   
     return (
       <div>
-        <button onClick={DeleteCurrent}>Eliminar elemento actual</button>
-        <button onClick={DeleteAll}>Eliminar todo</button>
+        <Button variant="danger" onClick={DeleteCurrent}>Eliminar elemento actual</Button>
+      <Button variant="danger" onClick={DeleteAll}>Eliminar todo</Button>
       </div>
     );
   };

@@ -1,69 +1,8 @@
-* {
-    font-family: Helvetica, Arial, sans-serif;
-    background-color: rgb(234, 234, 234);
-  }
-  
-  body {
-    padding: 60px;
-  }
-  
-  input {
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid rgb(97, 32, 158);
-    color: black;
-    font-size: 1.2rem;
-    outline: none;
-    padding: 10px 15px;
-    width: 100%;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 3rem;
-    margin-bottom: 5px;
-  }
-  
-  .card-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  
-  .card p {
-    background-color: white;
-    flex: 1;
-    font-size: 1.2rem;
-    margin-top: 0px;
-    /*padding: 5px 20px 0px 20px;*/
-    padding: 0px;
-    text-align: center;
-  }
+.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
 
-  
-  .container-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto; /* Alinear al centro horizontalmente */
-    max-width: 1200px;
-    padding: 0px;
-    
-  }
-  
-  .card {
-    width: calc(25% - 10px); /* Ancho de cada tarjeta con espacio entre ellas */
-    margin: 5px; /* Espacio entre las tarjetas */
-    padding-right: 10px;
-  }
-  
-  .card img {
-    height: 100%;
-    max-height: calc(50% - 50px); /* Ajustar la altura de la imagen al 100% */
-  }
-  
+.dark-mode h1 {
+  color: #fff;
+}
